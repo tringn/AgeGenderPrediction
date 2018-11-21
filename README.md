@@ -96,6 +96,7 @@ Female		49	318
 ```
 
 ## Convert to NCS graph
+This script compiles AgeNet and GenderNet caffe models into NCS graphs. It also converts mean file.
 ```bash
 ./compile2Movidius.sh
 ```
