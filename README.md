@@ -104,7 +104,7 @@ Female		49	318
 ```python3
 python3 run_inference.py --mean_file age_gender_mean.npy --image_path image/test_0.png
 ```
-## Ciation
+## Citation
 ```
 @inproceedings{LH:CVPRw15:age,
  author    = {Gil Levi and Tal Hassner},
