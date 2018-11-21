@@ -3,11 +3,11 @@
 These models are based on this [paper](https://talhassner.github.io/home/projects/cnn_agegender/CVPR2015_CNN_AgeGenderEstimation.pdf)
 
 ## Network Architecture
-[net_architecture](images/net_architecture.png)
+![net_architecture](images/net_architecture.png)
 
 The network contains three convolutional layers, each followed by a rectified linear operation and pooling layer. The first two layers also follow normalization using local response normalization. The first Convolutional Layer contains 96 filters of 7×7 pixels, the second Convolutional Layer contains 256 filters of 5×5 pixels, The third and final Convolutional Layer contains 384 filters of 3×3 pixels. Finally, two fully-connected layers are added, each containing 512 neurons.
 
-[net_illustration](images/net_illustration.png)
+![net_illustration](images/net_illustration.png)
 
 ## Dataset Preparation
 ### Download
