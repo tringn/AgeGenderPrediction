@@ -69,18 +69,38 @@ _Test GenderNet_
 ### Test result
 _AgeNet_
 ```python
-Accuracy: 67.1%, 461/687 corrects
+Accuracy: 66.5%, 457/687 corrects
 
 Confusion matrix:
-Actual\Predict	0	1	2	3	4	5	6	7	8	
+Actual\Predict	0-9	10-19	20-29	30-39	40-49	50-59	60-69	70-79	80-120	
 		-----------------------------------------------
-0		177	4	6	2	0	0	0	0	2
-1		4	2	10	2	1	0	0	0	0
-2		2	3	218	35	6	0	2	3	0
-3		2	1	51	39	6	5	3	1	0
-4		0	0	2	14	10	1	1	0	0
-5		0	0	0	7	3	1	5	1	0
-6		1	0	1	6	0	1	3	4	0
-7		0	0	1	1	1	3	7	4	3
-8		1	0	0	1	0	0	3	7	7
+0-9		178	2	7	2	0	0	0	0	2
+10-19		4	2	9	3	1	0	0	0	0
+20-29		1	2	214	44	2	2	2	2	0
+30-39		2	2	50	37	8	5	1	2	1
+40-49		0	1	6	10	8	2	1	0	0
+50-59		0	0	1	4	3	3	5	1	0
+60-69		2	0	3	2	0	3	3	3	0
+70-79		0	0	1	0	0	4	8	4	3
+80-120		1	0	0	2	0	0	2	6	8
+```
+_GenderNet_
+```python
+Accuracy: 85.2%, 585/687 corrects
+
+Confusion matrix:
+Actual\Predict	Male	Female	
+		-----------------------------------------------
+Male		267	53
+Female		49	318
+```
+
+### Convert to NCS graph
+```bash
+./compile2Movidius.sh
+```
+
+### Run inference
+```python3
+python3 run_inference.py --mean_file age_gender_mean.npy --image_path image/test_0.png
 ```
