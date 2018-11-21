@@ -95,12 +95,23 @@ Male		267	53
 Female		49	318
 ```
 
-### Convert to NCS graph
+## Convert to NCS graph
 ```bash
 ./compile2Movidius.sh
 ```
 
-### Run inference
+## Run inference
 ```python3
 python3 run_inference.py --mean_file age_gender_mean.npy --image_path image/test_0.png
+```
+## Ciation
+```
+@inproceedings{LH:CVPRw15:age,
+ author    = {Gil Levi and Tal Hassner},
+ title     = {Age and Gender Classification Using Convolutional Neural Networks},
+ booktitle = {IEEE Conf. on Computer Vision and Pattern Recognition (CVPR) workshops},
+ month	=  {June},
+ year 	= {2015},
+ URL 	= {\url{https://osnathassner.github.io/talhassner/projects/cnn_agegender}}
+}
 ```
