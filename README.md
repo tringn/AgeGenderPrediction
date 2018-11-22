@@ -3,11 +3,11 @@
 These models are based on this [paper](https://talhassner.github.io/home/projects/cnn_agegender/CVPR2015_CNN_AgeGenderEstimation.pdf)
 
 ## Network Architecture
-[net_architecture](images/net_architecture.png)
+![net_architecture](images/net_architecture.png)
 
 The network contains three convolutional layers, each followed by a rectified linear operation and pooling layer. The first two layers also follow normalization using local response normalization. The first Convolutional Layer contains 96 filters of 7×7 pixels, the second Convolutional Layer contains 256 filters of 5×5 pixels, The third and final Convolutional Layer contains 384 filters of 3×3 pixels. Finally, two fully-connected layers are added, each containing 512 neurons.
 
-[net_illustration](images/net_illustration.png)
+![net_illustration](images/net_illustration.png)
 
 ## Dataset Preparation
 ### Download
@@ -95,12 +95,24 @@ Male		267	53
 Female		49	318
 ```
 
-### Convert to NCS graph
+## Convert to NCS graph
+This script compiles AgeNet and GenderNet caffe models into NCS graphs. It also converts mean file.
 ```bash
 ./compile2Movidius.sh
 ```
 
-### Run inference
+## Run inference
 ```python3
 python3 run_inference.py --mean_file age_gender_mean.npy --image_path image/test_0.png
+```
+## Citation
+```
+@inproceedings{LH:CVPRw15:age,
+ author    = {Gil Levi and Tal Hassner},
+ title     = {Age and Gender Classification Using Convolutional Neural Networks},
+ booktitle = {IEEE Conf. on Computer Vision and Pattern Recognition (CVPR) workshops},
+ month	=  {June},
+ year 	= {2015},
+ URL 	= {\url{https://osnathassner.github.io/talhassner/projects/cnn_agegender}}
+}
 ```
