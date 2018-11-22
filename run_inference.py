@@ -96,10 +96,21 @@ def main():
     
     device = open_ncs_device()
     age_graph, age_fifo_in, age_fifo_out = load_graph(device, AGE_GRAPH)
+    gender_graph, gender_fifo_in, gender_fifo_out = load_graph(device, GENDER_GRAPH)
     age_out = infer_image(age_graph, img, age_fifo_in, age_fifo_out)[0]
+    gender_out = infer_image(gender_graph, img, gender_fifo_in, gender_fifo_out)[0]
+
     age_pred = AGE_LIST[age_out.argsort()[-1]]
     age_prob = age_out[age_out.argsort()[-1]]
     print("Age predicted: %s, %.2f%%" % (age_pred, age_prob*100))
+
+    gender_pred = GENDER_LIST[gender_out.argsort()[-1]]
+    gender_prob = gender_out[gender_out.argsort()[-1]]
+    print("Gender predicted: %s, %.2f%%" % (gender_pred, gender_prob*100))
+
+    gender_fifo_in.destroy()
+    gender_fifo_out.destroy()
+    gender_graph.destroy()
     clean_up(device, age_graph, age_fifo_in, age_fifo_out)
     
 if __name__ == "__main__":
